@@ -53,7 +53,10 @@ const WeatherResult = () => {
         <Text16GrayWeight400>
           {`${selectedWeather.weather?.city}, ${selectedWeather.weather?.country}`}
         </Text16GrayWeight400>
-        <Heading32>{selectedWeather.weather?.weather}</Heading32>
+        <Heading32>
+          {selectedWeather.weather?.weather}{" "}
+          <img src={selectedWeather.weather?.icon} />
+        </Heading32>
         <GridContainer>
           <DetailLineWeather
             label="Description:"
