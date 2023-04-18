@@ -1,0 +1,87 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl,
+dd,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+menu,
+nav {
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset font styles */
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Reset list styles */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Reset focus outline */
+*:focus {
+  outline: none;
+}
+
+/* Reset text decoration */
+a,
+button {
+  text-decoration: none;
+}
+
+/* Reset button styles */
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Reset form elements */
+input,
+select,
+textarea,
+button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
