@@ -9,6 +9,8 @@ import {
 import { geoAxios } from "../utils/axios.util";
 import { formatWeatherData } from "../utils/format.util";
 import { useWeatherAxios } from "./useAxios";
+import commonConstants from "../constants/common.constant";
+import { LANGUAGES } from "../i18n/i18n";
 
 export const useSearchWeather = () => {
   const weatherAxios = useWeatherAxios();
@@ -28,8 +30,12 @@ export const useSearchWeather = () => {
       );
       const dataGeo: GeoType = geoResponse.data;
       if (dataGeo && dataGeo?.length > 0) {
+        const lang =
+          localStorage.getItem(
+            commonConstants.LOCAL_STORAGE_KEY.LANGUAGE_KEY,
+          ) || LANGUAGES.EN;
         const weatherResponse = await weatherAxios.get(
-          `/weather?lat=${dataGeo[0].latitude}&lon=${dataGeo[0].longitude}`,
+          `/weather?lat=${dataGeo[0].latitude}&lon=${dataGeo[0].longitude}&lang=${lang}`,
         );
         const dataWeather: RawWeatherType = {
           ...weatherResponse.data,
