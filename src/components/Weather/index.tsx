@@ -1,8 +1,6 @@
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
-
 import commonConstants from "../../constants/common.constant";
-import { WeatherType } from "../../hooks/useSearch";
 import HistorySection from "./HistorySection";
 import SearchSection from "./SearchSection";
 import WeatherResult from "./WeatherResult";
@@ -15,7 +13,7 @@ export const SELECTED_WEATHER_STATUS = {
 };
 
 type SelectedWeather = {
-  status: string;
+  status: ValueOf<typeof SELECTED_WEATHER_STATUS>;
   weather: WeatherType | null;
 };
 

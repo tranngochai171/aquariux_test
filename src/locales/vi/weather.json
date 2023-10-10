@@ -1,0 +1,19 @@
+{
+  "search section": {
+    "todays weather": "Thời tiết hôm nay",
+    "city": "Thành phố",
+    "country": "Quốc gia",
+    "search": "Tìm kiếm",
+    "clear": "Xóa"
+  },
+  "weather result": {
+    "description": "Miêu tả",
+    "temperature": "Nhiệt độ",
+    "humidity": "Độ ẩm",
+    "time": "Thời gian"
+  },
+  "history section": {
+    "search history": "Lịch sử tìm kiếm",
+    "no record": "Không có kết quả"
+  }
+}

@@ -10,44 +10,6 @@ import { geoAxios } from "../utils/axios.util";
 import { formatWeatherData } from "../utils/format.util";
 import { useWeatherAxios } from "./useAxios";
 
-type GeoType = {
-  name: string;
-  latitude: number;
-  longitude: number;
-  country: string;
-}[];
-
-export type RawWeatherType = {
-  city: string;
-  country: string;
-  main: {
-    humidity: number;
-    temp_min: number;
-    temp_max: number;
-  };
-  weather: {
-    description: string;
-    icon: string;
-    main: string;
-  }[];
-  id: number;
-};
-
-export type WeatherType = {
-  id: number;
-  city: string;
-  country: string;
-  weather: string;
-  description: string;
-  icon: string;
-  humidity: number;
-  temp_min: number;
-  temp_max: number;
-  time: number;
-};
-
-export type WeathersType = WeatherType[];
-
 export const useSearchWeather = () => {
   const weatherAxios = useWeatherAxios();
   const setSelectedWeather = useSetAtom(selectedWeatherAtom);

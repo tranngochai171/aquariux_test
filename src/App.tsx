@@ -1,11 +1,15 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 import Weather from "./components/Weather";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Container maxWidth="lg">
-      <Weather />
+      <Box my={2}>
+        <Header />
+        <Weather />
+      </Box>
     </Container>
   );
 }

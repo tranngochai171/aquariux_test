@@ -1,28 +1,61 @@
-import { createTheme } from "@mui/material";
+import { createTheme as createMuiTheme } from "@mui/material";
+import {
+  ModeThemeType,
+  PrimaryColorThemeType,
+} from "./components/Providers/Providers";
 
-interface IObjectKeys {
-  [key: string]: string;
-}
+export const THEME_COLOR_CONSTANT = {
+  primaryColor: "#3b5dd9",
+  secondaryColor: "#de4040",
+  greenColor: "#19a13f",
+  grayColor: "#646464",
+} as const;
 
-const lightTheme: IObjectKeys = {
-  colorBlack: "#000000",
-  colorWhite: "#FFFFFF",
-  colorGray: "#646464",
-  colorElectricRed: "#E10600",
-  colorDune: "#313131",
-  colorDesert: "#D2AB66",
-};
+let themeMaterial = createMuiTheme({});
 
-export const themes = {
-  light: lightTheme,
-  //add theme if customer like
-};
-
-export const themeMaterial = createTheme({
+themeMaterial = createMuiTheme(themeMaterial, {
   palette: {
-    primary: {
-      main: lightTheme.colorBlack,
-      contrastText: lightTheme.colorBlack,
-    },
+    gray: themeMaterial.palette.augmentColor({
+      color: {
+        main: THEME_COLOR_CONSTANT.grayColor,
+      },
+      name: "gray",
+    }),
   },
 });
+
+const createTheme = (
+  mode: ModeThemeType,
+  primaryColor: PrimaryColorThemeType,
+) =>
+  createMuiTheme({
+    typography: {
+      fontFamily: "Inclusive Sans, Arial, sans-serif",
+    },
+    palette: {
+      mode,
+      primary: {
+        main: primaryColor || THEME_COLOR_CONSTANT.primaryColor,
+      },
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "unset",
+          },
+        },
+      },
+    },
+  });
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    gray: Palette["primary"];
+  }
+  interface PaletteOptions {
+    gray?: PaletteOptions["primary"];
+  }
+}
+
+export { themeMaterial, createTheme };

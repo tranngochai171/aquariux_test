@@ -1,5 +1,3 @@
-import { RawWeatherType, WeatherType } from "../hooks/useSearch";
-
 export const formatWeatherData = (rawData: RawWeatherType): WeatherType => {
   return {
     id: rawData.id,

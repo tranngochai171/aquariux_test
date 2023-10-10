@@ -1,0 +1,19 @@
+{
+  "search section": {
+    "todays weather": "Today's Weather",
+    "city": "City",
+    "country": "Country",
+    "search": "Search",
+    "clear": "clear"
+  },
+  "weather result": {
+    "description": "Description",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "time": "Time"
+  },
+  "history section": {
+    "search history": "Search History",
+    "no record": "No Record"
+  }
+}

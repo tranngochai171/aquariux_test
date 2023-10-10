@@ -4,7 +4,6 @@ import { Box, Divider, IconButton, Stack, styled } from "@mui/material";
 import { useAtomValue, useSetAtom } from "jotai";
 import moment from "moment";
 import React, { useMemo } from "react";
-
 import {
   removeWeatherAtom,
   reselectWeatherAtom,
@@ -14,6 +13,8 @@ import commonConstants from "../../../constants/common.constant";
 import { useSearchWeather } from "../../../hooks/useSearch";
 import { Heading18 } from "../../Common/Styled/TypographyStyled";
 import { StyledDivider } from "../WeatherStyled";
+import { useTranslation } from "react-i18next";
+import { NAME_SPACES } from "../../../i18n/i18n";
 
 const NoRecordBox = styled(Box)({
   height: "200px",
@@ -23,6 +24,7 @@ const NoRecordBox = styled(Box)({
 });
 
 const HistorySection = () => {
+  const { t } = useTranslation(NAME_SPACES.WEATHER);
   const sortedHistoryWeather = useAtomValue(sortedHistoryWeatherAtom);
   const removeHistoryWeather = useSetAtom(removeWeatherAtom);
   const reselectWeather = useSetAtom(reselectWeatherAtom);
@@ -30,7 +32,7 @@ const HistorySection = () => {
   const content = useMemo(() => {
     if (sortedHistoryWeather.length) {
       return (
-        <Stack>
+        <Stack mt={2}>
           {sortedHistoryWeather.map((item, index) => (
             <React.Fragment key={item.id}>
               <Stack
@@ -69,14 +71,14 @@ const HistorySection = () => {
         </Stack>
       );
     }
-    return <NoRecordBox>No Record</NoRecordBox>;
-  }, [sortedHistoryWeather]);
+    return <NoRecordBox>{t("history section.no record")}</NoRecordBox>;
+  }, [sortedHistoryWeather, t]);
   return (
-    <>
-      <Heading18>Search History</Heading18>
+    <Box mt={4}>
+      <Heading18>{t("history section.search history")}</Heading18>
       <StyledDivider />
       {content}
-    </>
+    </Box>
   );
 };
 

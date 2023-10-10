@@ -1,5 +1,11 @@
 import { TextField } from "@mui/material";
+import { ComponentProps } from "react";
 import { Controller, useFormContext } from "react-hook-form";
+
+export type InputProps = ComponentProps<typeof TextField> & {
+  name: string;
+  label: string;
+};
 
 const Input = (props: any) => {
   const { name, label, ...rest } = props;
